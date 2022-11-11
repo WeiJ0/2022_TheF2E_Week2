@@ -1,0 +1,57 @@
+$black: #000000;
+$white: #ffffff;
+$primary: #0b7d77;
+$secondary: #096561;
+$third: #cee5e4;
+$success: #0b8652;
+$blue: #0073ea;
+$red: #d83a52;
+$dark: #323338;
+$dark-grey: #676879;
+$grey: #c5c7d0;
+$ui-grey: #e6e9ef;
+$light-grey: #f5f6f8;
+
+$break-points: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+/* @each $break-point, $size in $break-points {
+  @mixin {$break-point} {
+    @media (max-width: $size) {
+      @content;
+    }
+  }
+} */
+
+.layout{
+  position: relative;
+}
+
+.navbar-nav {
+  word-break: keep-all;
+}
+.navbar__text {
+  transform: translateX(30px);
+}
+
+.fullPageLayout {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(
+      0deg,
+      rgba(206, 229, 228, 0.2),
+      rgba(206, 229, 228, 0.2)
+    ),
+    #ffffff;
+  backdrop-filter: blur(2px);
+  z-index: 9999;
+}
