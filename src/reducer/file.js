@@ -1,4 +1,4 @@
-import * as actions from '../action/file';
+import * as actions from '../actions/file';
 
 const initState = {
     targetFile: {
@@ -8,11 +8,15 @@ const initState = {
 }
 
 const fileReducer = (state = initState, action) => {
+    console.log(action);
     switch (action.type) {
-        case actions.GET_FILE:
+        case actions.SET_FILE:
             return {
                 ...state,
-                targetFile: action.payload
+                targetFile: {
+                    name: action.payload.targetFile.name || state.targetFile.name,
+                    base64Data: action.payload.targetFile.base64Data || state.targetFile.base64Data
+                }
             }
         default:
             return state

@@ -1,0 +1,15 @@
+.navbar__edit {
+  &__btn {
+    &:hover {
+      @include pop;
+    }
+  }
+}
+
+.step__item {
+  &__line {
+    width: 80px;
+    height: 0;
+    border: 1px solid #c5c7d0;
+  }
+}

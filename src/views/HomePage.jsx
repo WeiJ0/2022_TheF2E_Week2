@@ -5,8 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Container, Modal } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 
-import "../assets/styles/HomePage.scss";
-
 
 //images
 import addFiles from '../assets/images/addfile.png';
@@ -16,7 +14,7 @@ import circle3 from '../assets/images/circle3.svg';
 import fileUpload from '../assets/images/File-upload.png';
 import sending from '../assets/images/Sending.png';
 import signing from '../assets/images/Signing.png';
-import { getFile } from '../actions/file';
+import { setFile } from '../actions/file';
 
 const UploadBlock = () => {
     const uploadBlockRef = useRef(null);
@@ -45,7 +43,7 @@ const UploadBlock = () => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
-            dispatch(getFile({
+            dispatch(setFile({
                 name: file.name,
                 base64Data: reader.result
             }))
@@ -145,7 +143,7 @@ const HomePage = () => {
                 <section className='intro mt-6 d-flex flex-column align-items-center'>
                     <h1 className='text-dark fw-bold mb-0'>輕鬆幾步驟，完成您的簽署</h1>
                     <section className='intro__steps mt-3 mt-lg-5 w-100 d-flex flex-column flex-md-row align-items-center justify-content-around'>
-                        {stepData.map(step => <IntroStep data={step} />)}
+                        {stepData.map((step, index) => <IntroStep key={index} data={step} />)}
                     </section>
                 </section>
             </Container>

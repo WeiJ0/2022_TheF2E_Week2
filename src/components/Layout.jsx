@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 
 //redux
 import { Provider } from "react-redux";
-import store from "../store";
+import store from "../stores";
 
 // components
 import Header from '../components/Header';
