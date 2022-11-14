@@ -13,10 +13,7 @@ const fileReducer = (state = initState, action) => {
         case actions.SET_FILE:
             return {
                 ...state,
-                targetFile: {
-                    name: action.payload.targetFile.name || state.targetFile.name,
-                    base64Data: action.payload.targetFile.base64Data || state.targetFile.base64Data
-                }
+                targetFile: action.payload.targetFile
             }
         default:
             return state

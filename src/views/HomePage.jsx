@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { Container, Modal } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
@@ -34,20 +34,21 @@ const UploadBlock = () => {
                 }
             })
         } else {
-            setFile(file);
+            storeSetFile(file);
         }
     }
 
     // 儲存到 store
-    const setFile = (file) => {
+    const storeSetFile = (file) => {
         const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => {
+        reader.onload = async () => {            
             dispatch(setFile({
                 name: file.name,
                 base64Data: reader.result
             }))
+            navigate('/editor');
         }
+        reader.readAsDataURL(file);
     }
 
     // 綁定上傳按紐
