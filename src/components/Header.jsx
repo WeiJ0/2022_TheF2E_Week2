@@ -51,7 +51,6 @@ const EditNameModal = (props) => {
     }
 
     const saveName = () => {
-        console.log(editName);
         dispatch(setFileName(editName))
     }
     return (

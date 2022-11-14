@@ -1,7 +1,10 @@
 @import "./bootstrap.scss";
 @import "./_global.scss";
 
+// views
 @import "./views/_HomePage.scss";
 @import "./views/_EditPage.scss";
 
+// components
 @import "./components/_Header.scss";
+@import "./components/_SignModal.scss";
