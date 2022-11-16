@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router';
 import { setFileName } from '../actions/file';
@@ -51,7 +51,8 @@ const EditNameModal = (props) => {
     }
 
     const saveName = () => {
-        dispatch(setFileName(editName))
+        dispatch(setFileName(editName));
+        close();
     }
     return (
         <>
@@ -80,8 +81,12 @@ const EditNameModal = (props) => {
 }
 
 const EditNavbar = () => {
-    const targetFile = useSelector(state => state.fileReducer.targetFile);
+    let targetFile = useSelector(state => { console.log(state); return state.fileReducer.targetFile });
     const [showEditName, setShowEditName] = useState(false);
+
+    useEffect(() => {
+        console.log(targetFile);
+    }, [targetFile])
 
     const openEditName = () => setShowEditName(true);
     const closeEditName = () => setShowEditName(false);
@@ -106,7 +111,6 @@ const EditNavbar = () => {
 
 const Header = () => {
     const location = useLocation();
-    console.log(location.pathname);
     return (
         <Navbar sticky="top" className="border-bottom border-grey bg-white px-4 px-lg-auto" expand="lg">
             <Container>

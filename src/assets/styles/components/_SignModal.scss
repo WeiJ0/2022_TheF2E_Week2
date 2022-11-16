@@ -16,4 +16,59 @@
     border: none;
     border-bottom: 1px solid $primary;
   }
+
+  .type {
+    &__fonts {
+      &-san {
+        font-family: "Noto Sans TC", sans-serif;
+        padding: 5px 8px;
+        transition: all 0.3s ease;
+      }
+      &-ser {
+        margin-left: 8px;
+        font-family: "Noto Serif TC", serif;
+        padding: 5px 8px;
+        transition: all 0.3s ease;
+      }
+    }
+
+    &__input {
+      position: relative;
+    }
+
+    &__colors {
+      position: absolute;
+      right: 5%;
+      bottom: 8px;
+
+      > * {
+        position: relative;
+        height: 8px;
+        width: 8px;
+        border-color: $primary;
+        border-radius: 50%;
+        border-width: 0;
+        border-style: solid;
+        cursor: pointer;
+        z-index: 2;
+        transition: all 0.35s ease;
+
+        &:hover {
+          border-width: 3px;
+        }
+      }
+    }
+
+    &__color {
+      &-black {
+        border-color: lighten($black, 10%);
+      }
+      &-blue {
+        border-color: lighten($blue, 10%);
+      }
+      &-red {
+        border-color: lighten($red, 10%);
+      }
+    }
+  }
 }

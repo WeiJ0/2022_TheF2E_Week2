@@ -53,6 +53,9 @@ $utilities: map-merge(
 // scss-docs-end import-stack
 
 .modal {
+  &-backdrop {
+    backdrop-filter: blur(2px);
+  }
   &-header {
     flex-direction: column-reverse;
     .btn-close {

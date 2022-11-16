@@ -1,10 +1,9 @@
 export const SET_FILE = 'SET_FILE';
 
-export const setFile = (file) => ({
+export const setFile = (fileObj) => ({
     type: SET_FILE,
     payload: {
-        targetFile: file.name,
-        base64Data: file.base64Data
+        targetFile: fileObj
     }
 })
 
